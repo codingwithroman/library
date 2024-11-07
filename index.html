@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <script src="my-script.js" defer></script>
+    <title>Library</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <div class="mainContainer">
+        <div class="header">
+            <div class="topHeader">
+                <div class="search">
+                    <button name="search" type="submit ">🔍</button>
+                    <input type="text" name="search" id="search">
+                </div>
+                <div class="profile">
+                    <a href="">🔔</a>
+                    <img id="profilePicture" src="snowleopard.jpg">
+                    <h4 class="profileName">Roman Builds</h4>
+                </div>
+            </div>
+            <div class="bottomHeader">
+                <div class="greeting">
+                    <img id="profilePictureLarge" src="snowleopard.jpg">
+                    <div class="greetingText">
+                        <h6>Hi there,</h6>
+                        <h2>Roman Builds (@romanbuilds)</h2>
+                    </div>
+                </div>
+                <div class="headerActions">
+                    <button class="headerButtons" onclick="openForm()">New</button>
+                    <button class="headerButtons">Upload</button>
+                    <button class="headerButtons">Share</button>
+                </div>
+            </div>
+        </div>
+        <div class="sidebar">
+            <h1 id="dashboardTitle">Dashboard</h1>
+            <ul class="dashboardPages">
+                <li>🏠     Home</li>
+                <li>🙋     Profile</li>
+                <li>💬     Messages</li>
+                <li>🕰️     History</li>
+                <li>📋     Tasks</li>
+                <li>👥     Communities</li>
+                <li>🔧     Settings</li>
+                <li>❔     Support</li>
+                <li>🔒     Privacy</li>
+            </ul>
+        </div>
+        <div class="content">
+            <div class="projectContainer">
+                <h3>Your Library</h3>
+                <div class="projectCards">
+                    <div class="projectCard1">
+                        <div class="projectText">
+                            <p class="projectTitle">Title 1</p>
+                            <p class="projectDescription">Hier komt een random omschrijving van het project</p>
+                        </div>
+                        <p class="projectActions">❤️   👁️   🔗</p>
+                    </div>
+                    <div class="projectCard2">
+                        <div class="projectText">
+                            <p class="projectTitle">Title 2</p>
+                            <p class="projectDescription">Hier komt een random omschrijving van het project</p>
+                        </div>
+                        <p class="projectActions">❤️   👁️   🔗</p>
+                    </div>
+                    <div class="projectCard3">
+                        <div class="projectText">
+                            <p class="projectTitle">Title 3</p>
+                            <p class="projectDescription">Hier komt een random omschrijving van het project</p>
+                        </div>
+                        <p class="projectActions">❤️   👁️   🔗</p>
+                    </div>
+                    <div class="projectCard4">
+                        <div class="projectText">
+                            <p class="projectTitle">Title 4</p>
+                            <p class="projectDescription">Hier komt een random omschrijving van het project</p>
+                        </div>
+                        <p class="projectActions">❤️   👁️   🔗</p>
+                    </div>
+                    <div class="projectCard5">
+                        <div class="projectText">
+                            <p class="projectTitle">Title 5</p>
+                            <p class="projectDescription">Hier komt een random omschrijving van het project</p>
+                        </div>
+                        <p class="projectActions">❤️   👁️   🔗</p>
+                    </div>
+                    <div class="projectCard6">
+                        <div class="projectText">
+                            <p class="projectTitle">Title 6</p>
+                            <p class="projectDescription">Hier komt een random omschrijving van het project</p>
+                        </div>
+                        <p class="projectActions">❤️   👁️   🔗</p>
+                    </div>
+                    
+                </div>
+            </div>
+            <div class="announcementContainer">
+                <h3>Announcements</h3>
+                <div class="announcementCard">
+                    <div class="announcement">
+                        <h5>Announcement Title 1</h5>
+                        <p class="announcementDescription">hier komt een kleine omschrijving van de aankondiging</p>
+                    </div>
+                    <hr class="solid">
+                    <div class="announcement">
+                        <h5>Announcement Title 2</h5>
+                        <p class="announcementDescription">hier komt een kleine omschrijving van de aankondiging</p>
+                    </div>
+                    <hr class="solid">
+                    <div class="announcement">
+                        <h5>Announcement Title 3</h5>
+                        <p class="announcementDescription">hier komt een kleine omschrijving van de aankondiging</p>
+                    </div>
+                </div>
+            </div>
+            <div class="trendingContainer">
+                <h3>Trending</h3>
+                <div class="trendingCard">
+                    <div class="trendingAccount">
+                        <img src="dog.png" alt="">
+                        <div>
+                            <p class="username">@josephine</p>
+                            <p class="fullname">Big Farter</p>
+                        </div>
+                    </div>
+                    <div class="trendingAccount">
+                        <img src="snowleopard.jpg" alt="">
+                        <div>
+                            <p class="username">@romanbuilds</p>
+                            <p class="fullname">Roman Builds</p>
+                        </div>
+                    </div>
+                    <div class="trendingAccount">
+                        <img src="koala.png" alt="">
+                        <div>
+                            <p class="username">@manou</p>
+                            <p class="fullname">Small Farter</p>
+                        </div>
+                    </div>
+                    <div class="trendingAccount">
+                        <img src="cow.png" alt="">
+                        <div>
+                            <p class="username">@lotus</p>
+                            <p class="fullname">Henk</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>        
+    </div>
+    <div id="overlay" class="overlay"></div>
+    <div class="form-popup" id="bookForm">
+        <form id="HTMLform">
+            <div class="formTopRow">
+                <h3 id="formTitle">Fill in Book Info</h3>
+                <button id="closebtn" type="button" onclick="closeForm()"><i class="fas fa-times"></i>
+                </button>
+            </div>
+            <label for="title">Title:</label>
+            <input type="text" id="title" name="book title" required>
+            <label for="author">Author:</label>
+            <input type="text" id="author" name="author" required>
+            <label for="pages">Amount of pages:</label>
+            <input type="number" id="pages" name="amount of pages" required>
+            <label for="genre">Genre:</label>
+            <input type="text" id="genre" name="genre" required>
+            <label for="readStatus">Did you read the book:</label>
+            <select id="readStatus" name="read status">
+                <option value="read">Yes</option>
+                <option value="unread">No</option>
+            </select>
+            <button id="submitBookBtn" type="submit">Submit</button>
+        </form>
+    </div>
+</body>
+</html>

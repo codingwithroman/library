@@ -1,0 +1,501 @@
+*, *::before, *::after {
+    box-sizing: border-box;
+}
+
+* {
+    margin: 0;
+}
+
+body {
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+}
+
+img, picture, video, canvas, svg {
+    display: block;
+    max-width: 100%;
+}
+
+input, button, textarea, select {
+    font: inherit;
+}
+
+p, h1, h2, h3, h4, h5, h6 {
+    overflow-wrap: break-word;
+}
+
+#root, #__next {
+    isolation: isolate;
+}
+
+body {
+    font-family: 'Inter', system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
+}
+
+.mainContainer {
+    height: 100vh;
+    display: grid;
+    gap: 0px;
+    grid-template: 
+        "side head" 20%
+        "side main" 1fr / minmax(min-content, 20%) 1fr;
+}
+
+#bookForm{
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border: none;
+    border-radius: 15px;
+    color: rgb(240, 240, 240);
+    background-color: rgb(26, 26, 26);
+    padding: 30px;
+    width: 350px;
+    z-index: 101;
+
+    #HTMLform {
+        display: flex;
+        flex-direction: column;
+
+        label {
+            margin-top: 1rem;
+            margin-bottom: 0.3rem;
+        }
+
+        .formTopRow {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        input, select {
+            background-color: rgb(51, 51, 51);
+            padding: 0.4rem;
+            color: white;
+            border: none;
+            border-radius: 5px;
+        }
+    
+        #submitBookBtn {
+            border: none;
+            border-radius: 15px;
+            padding: 5px 20px;
+            background-color: rgb(107, 107, 107);
+            color: rgb(231, 231, 231);
+            cursor: pointer;
+            font-weight: 500;
+            margin-top: 1rem;
+        }
+
+        #submitBookBtn:hover {
+            background-color: rgb(165, 165, 165);
+        }
+
+        #closebtn {
+            border: none;
+            width: 1.7rem;
+            border-radius: 50%;
+            background-color: rgb(104, 104, 104);
+            color: rgb(231, 231, 231);
+            cursor: pointer;
+            font-weight: 600;
+        }
+
+        #closebtn:hover {
+            background-color: rgb(165, 165, 165);
+        }
+    }
+    
+}
+
+.mainContainer input[type=text], .mainContainer input[type=number], select[id=readStatus] {
+    width: 100%;
+    padding: 12px;
+    margin: 5px 0 22px 0;
+    border: none;
+    background: #f1f1f1;
+}
+
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.671); /* Darkens the background */
+    display: none;
+    z-index: 100; /* Make sure it’s on top */
+}
+
+.grid-item {
+    h2 {
+        font-size: 1.5rem;
+    }
+
+    h4 {
+    font-size: 1.1rem;
+    font-weight: 400;
+    font-style: italic;
+    }
+}
+
+input[type="checkbox"] {
+    position: absolute;
+    opacity: 0;
+}
+
+input[type="checkbox"] + span {
+    display: inline-block;
+    width: 40px;
+    height: 20px;
+    background-color: #ccc;
+    border-radius: 50px;
+    position: relative;
+    transition: background-color 0.3s;
+    cursor: pointer;
+}
+
+input[type="checkbox"]:hover + span {
+    outline: 4px solid rgba(183, 201, 214, 0.5);  /* Creates a visual outline outside of the button */
+}
+
+input[type="checkbox"]:checked + span {
+    background-color: #4CAF50;
+}
+
+input[type="checkbox"] + span::before {
+    content: "";
+    position: absolute;
+    left: 2px;
+    top: 2px;
+    width: 16px;
+    height: 16px;
+    background-color: white;
+    border-radius: 50%;
+    transition: transform 0.3s;
+}
+
+input[type="checkbox"]:checked + span::before {
+    transform: translateX(20px);
+}
+
+.cellTopRow {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.cellBottomRow {
+    display: flex;
+    justify-content: space-between;
+}
+
+/* Base button style */
+.remove-button {
+    background-color: transparent; /* No solid background */
+    border: 2px solid #ddd; /* Light gray border */
+    border-radius: 25px; /* Rounded corners */
+    color: #e4e4e4; /* Dark gray text for readability */
+    padding: 8px 16px; /* Space around the text */
+    font-size: 14px; /* Small font size for minimalism */
+    font-weight: 500; /* Medium weight for text */
+    cursor: pointer; /* Pointer cursor to indicate clickable area */
+    transition: all 0.3s ease-in-out; /* Smooth transitions for hover/active states */
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  /* Icon style for the button */
+  .remove-button i {
+    margin-right: 5px; /* Space between icon and text */
+    font-size: 16px; /* Slightly larger icon */
+  }
+  
+  /* Hover effect - more pronounced */
+  .remove-button:hover {
+    border-color: #ff0000; /* Subtle blue border for hover, similar to iOS accent color */
+    background-color: rgba(0, 120, 212, 0.1); /* Light blue background on hover */
+    color: #ff0000; /* Blue text to match the hover background */
+  }
+  
+  /* Focus effect - when button is focused using keyboard */
+  .remove-button:focus {
+    outline: none; /* Remove default focus outline */
+    box-shadow: 0 0 0 2px rgba(0, 120, 212, 0.4); /* Soft focus ring around button */
+  }
+  
+  /* Active effect - when clicked */
+  .remove-button:active {
+    background-color: rgba(0, 120, 212, 0.2); /* Slightly darker background on active state */
+    transform: scale(0.98); /* Slightly shrink the button for click effect */
+  }
+  
+  /* Disabled button */
+  .remove-button:disabled {
+    color: #aaa; /* Light gray text */
+    border-color: #ddd; /* Light gray border */
+    cursor: not-allowed; /* Disable pointer cursor */
+  }
+  
+
+/* HIER VOLGT COPYPASTE CSS */
+.sidebar {
+    grid-area: side;
+    padding: 30px;
+    background-color: rgb(32, 32, 32);
+    color: rgb(238, 238, 238);
+    border-right: 1px solid rgb(54, 54, 54);
+        .dashboardPages {
+            font-size: 1.4rem;
+            font-weight: 600;
+            list-style: none;
+                li {
+                    margin-bottom: 1rem;
+                    white-space: pre;
+                }
+                
+                li:hover {
+                    cursor: pointer;
+                    color: rgb(211, 211, 211);
+                }
+                li:nth-child(6) {
+                    margin-bottom: 4rem;
+                }
+        }
+}
+
+.header {
+    grid-area: head;
+    background-color: rgb(47, 47, 47);
+    color: white;
+    border-bottom: 1px solid rgb(54, 54, 54);
+
+}
+
+.content {
+    grid-area: main;
+    display: grid;
+    row-gap: 0.2rem;
+    column-gap: 1.8rem;
+    grid-template: 22rem auto / 1fr 25%;
+    padding: 2rem;
+    background-color: rgb(25, 25, 25);
+    color: rgb(238, 238, 238);
+}
+
+#dashboardTitle {
+    margin-bottom: 50px;
+}
+
+.projectContainer {
+    grid-area: 1 / 1 / 3 / 1;
+    /* display: grid;
+    grid-template: 1fr 1fr 1fr / 1fr 1fr;
+    gap: 1.8rem; */
+}
+
+.projectCards {
+    display: grid;
+    grid-template: 1fr 1fr 1fr / 1fr 1fr;
+    gap: 1.8rem;
+}
+
+.trendingContainer {
+    grid-area: 2 / 2 / 2 / 2;
+    
+}
+
+.announcementContainer {
+    grid-area: 1 / 2 / 1 / 2;
+    gap: 1rem;
+
+}
+
+.projectCards > div, 
+.announcementCard,
+.grid-item {
+    background-color: rgb(47, 47, 47);
+    border: 1px solid rgb(54, 54, 54);
+    border-radius: 10px;
+    padding: 1.8rem;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+}
+
+.projectCards>div:hover,
+.grid-item:hover {
+    background-color: rgb(54, 54, 54);
+    
+}
+
+.projectCards > div,
+.grid-item {
+    height: 12rem;
+    border-left: 0.6rem solid red;
+    display: flex;
+    justify-content: space-between;
+}
+
+.projectActions {
+    align-self: flex-end;
+    white-space: pre;
+    font-size: 1.2rem;
+}
+
+.projectTitle {
+    font-size: max(17px, 1.2rem);
+    font-weight: 700;
+}
+
+.projectDescription {
+    color: rgb(192, 192, 192);
+    
+}
+
+.announcementDescription {
+    font-size: 0.8rem;
+    color: rgb(192, 192, 192);
+}
+
+hr.solid {
+    border-top: 1px solid rgb(151, 25, 25);
+    margin: 1rem;
+}
+
+h3 {
+    font-size: 1.5rem;
+    font-weight: 600;
+}
+
+.content h3 {
+    margin-bottom: 0.6rem;
+}
+
+.header {
+    background-image: url(lightbulb.jpg);
+    background-size: cover;
+    background-position: 50% 50%;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    padding: 1rem 3rem;
+    gap: 1rem;
+        .topHeader {
+            display: flex;
+            justify-content: space-between;
+                .search {   
+                    display: flex;
+                    align-items: center;
+                    gap: 2rem;
+                    input {
+                        width: 30rem;
+                        height: 2rem;
+                        background-color: rgb(47, 47, 47);
+                        border: 0px;
+                        border-radius: 25px;
+                    }
+                    input:hover {
+                        background-color: rgb(65, 65, 65);
+                        
+                    }
+                    button {
+                        width: 1rem;
+                        font-size: 1.5rem;
+                        background: none;
+                        border: none;
+                        cursor: pointer;
+                    }
+        
+                }    
+                .profile {
+                    display: flex;
+                    gap: 0.8rem;
+                    align-items: center;
+                        a {
+                            font-size: 1.4rem;
+                        }
+                }
+        }
+        .bottomHeader {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+                .greeting {
+                    display: flex;
+                    align-items: center;
+                }
+                .headerActions{
+                    width: 20rem;
+                    display: flex;
+                    justify-content: space-between;
+                    gap: 2rem;
+                        button {
+                            background-color: rgb(47, 47, 47);
+                            color: white;
+                            width: 6.5rem;
+                            height: 2.3rem;
+                            border: none;
+                            border-radius: 25px;
+                            font-weight: 500;
+                        }
+                        button:hover {
+                            background-color: rgb(65, 65, 65);
+                            cursor: pointer;
+                        }
+                }
+        }
+}
+
+.profileName {
+    color: white;
+    font-size: 1.3rem;
+}
+
+#profilePicture {
+    height: 3rem;
+    clip-path: circle();
+}
+
+
+#profilePictureLarge {
+    height: 4.6rem;
+    clip-path: circle();
+}
+
+
+.trendingCard {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    background-color: rgb(47, 47, 47);
+    border: 1px solid rgb(54, 54, 54);
+    border-radius: 10px;
+}
+
+.trendingAccount {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 0.814rem 2rem;
+    width: 100%;
+    font-size: 0.9rem;
+    img {
+        height: 2.5rem;
+        width: 2.5rem;
+        clip-path: circle();
+        
+    }
+    .fullname {
+        color: rgb(190, 190, 190);
+    }
+}
+
+.trendingAccount:hover {
+    cursor: pointer;
+    background-color: rgb(54, 54, 54);
+    border-radius: 10px;
+}
